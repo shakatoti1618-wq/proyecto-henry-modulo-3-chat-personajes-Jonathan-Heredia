@@ -1,0 +1,16 @@
+{
+    "name": "chat-personajes-pi-m3",
+    "version": "1.0.0",
+    "description": "SPA para chatear con personajes ficticios usando Gemini AI",
+    "scripts": {
+        "dev": "vercel dev",
+        "test": "vitest",
+        "test:run": "vitest run"
+    },
+    "devDependencies": {
+        "vitest": "^1.0.0"
+    },
+    "allowScripts": {
+        "esbuild@0.21.5": true
+    }
+}
