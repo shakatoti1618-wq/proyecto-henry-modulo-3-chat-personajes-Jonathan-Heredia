@@ -1,51 +1,35 @@
+import { renderChat } from "./chat.js";
 import { characters } from "./characters.js";
 
 const container = document.querySelector("#characters-container");
 
-container.innerHTML = characters
-    .map(character => `
-    <div class="character-card">
-        <h2>${character.name}</h2>
-        <p>${character.description}</p>
+function renderCharacters() {
+    container.innerHTML = characters
+        .map(character => `
+        <div class="character-card">
+            <h2>${character.name}</h2>
+            <p>${character.description}</p>
 
-        <button data-id="${character.id}">
-            Seleccionar
-        </button>
-    </div>
-`)
-.join("");
-
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const selectedId = button.dataset.id;
-
-        const character = characters.find(
-            character => character.id === selectedId
-        );
-
-container.innerHTML = `
-    <div class="chat-container">
-
-    <button id="back-button">
-            ← Volver
-    </button>
-
-        <h2>${character.name}</h2>
-
-        <div class="messages">
-            <p>${character.greeting}</p>
+            <button data-id="${character.id}">
+                Seleccionar
+            </button>
         </div>
-        <input
-            type="text"
-            placeholder="Escribe un mensaje..."
-        >
+    `)
+    .join("");
 
-        <button>
-            Enviar
-        </button>
-    </div>
-`;
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const selectedId = button.dataset.id;
+
+            const character = characters.find(
+                character => character.id === selectedId
+            );
+
+            renderChat(container, character, renderCharacters);
+        });
     });
-});
+}
+
+renderCharacters();
