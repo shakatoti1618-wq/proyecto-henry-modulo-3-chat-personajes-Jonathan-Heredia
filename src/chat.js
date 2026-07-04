@@ -1,4 +1,5 @@
 export function renderChat(container, character, renderCharacters) {
+    let conversation = [];
     container.innerHTML = `
         <div class="chat-container">
 
@@ -45,6 +46,11 @@ export function renderChat(container, character, renderCharacters) {
 
     const userMessage = messageInput.value;
 
+    conversation.push({
+    role: "user",
+    content: userMessage
+});
+
     messages.innerHTML += `
     <p><strong>Tú:</strong> ${userMessage}</p>`;
 
@@ -63,6 +69,11 @@ export function renderChat(container, character, renderCharacters) {
     if (character.id === "master-chief") {
     response = "Espero tus órdenes.";
 }
+
+    conversation.push({
+    role: "assistant",
+    content: response
+});
 
     messages.innerHTML += `
     <p><strong>${character.name}:</strong> ${response}</p>`;
