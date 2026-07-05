@@ -1,4 +1,7 @@
-export async function getCharacterResponse(character) {
+export async function getCharacterResponse(
+    character,
+    conversation
+) {
 
     if (character.id === "goku") {
         return "¡Genial! ¿Quieres entrenar conmigo?";
