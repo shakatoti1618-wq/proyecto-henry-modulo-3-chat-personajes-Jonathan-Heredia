@@ -1,3 +1,5 @@
+import { getCharacterResponse } from "./ai.js";
+
 export function renderChat(container, character, renderCharacters) {
     let conversation = [];
     container.innerHTML = `
@@ -38,45 +40,36 @@ export function renderChat(container, character, renderCharacters) {
         renderCharacters();
     });
 
-    sendButton.addEventListener("click", () => {
+    sendButton.addEventListener("click", async () => {
 
     if (messageInput.value.trim() === "") {
         return;
     }
 
+    const response =
+        await getCharacterResponse(character);
+
     const userMessage = messageInput.value;
 
     conversation.push({
-    role: "user",
-    content: userMessage
-});
+        role: "user",
+        content: userMessage
+    });
 
     messages.innerHTML += `
-    <p><strong>Tú:</strong> ${userMessage}</p>`;
+        <p><strong>Tú:</strong> ${userMessage}</p>
+    `;
 
     messageInput.value = "";
 
-    let response = "";
-
-    if (character.id === "goku") {
-    response = "¡Genial! ¿Quieres entrenar conmigo?";
-}
-
-    if (character.id === "kratos") {
-    response = "Habla, guerrero.";
-}
-
-    if (character.id === "master-chief") {
-    response = "Espero tus órdenes.";
-}
-
     conversation.push({
-    role: "assistant",
-    content: response
-});
+        role: "assistant",
+        content: response
+    });
 
     messages.innerHTML += `
-    <p><strong>${character.name}:</strong> ${response}</p>`;
+        <p><strong>${character.name}:</strong> ${response}</p>
+    `;
 
 });
 }
