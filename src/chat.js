@@ -1,7 +1,14 @@
 import { getCharacterResponse } from "./ai.js";
 
+const conversations = {};
+
 export function renderChat(container, character, renderCharacters) {
-    let conversation = [];
+    const conversation =
+    conversations[character.id] || [];
+
+    conversations[character.id] =
+    conversation;
+
     container.innerHTML = `
         <div class="chat-container">
 
@@ -35,6 +42,22 @@ export function renderChat(container, character, renderCharacters) {
     const sendButton = document.querySelector("#send-button");
 
     const messages = document.querySelector(".messages");
+
+    conversation.forEach(message => {
+
+    if (message.role === "user") {
+        messages.innerHTML += `
+            <p><strong>Tú:</strong> ${message.content}</p>
+        `;
+    }
+
+    if (message.role === "assistant") {
+        messages.innerHTML += `
+            <p><strong>${character.name}:</strong> ${message.content}</p>
+        `;
+    }
+
+});
 
     backButton.addEventListener("click", () => {
         renderCharacters();
