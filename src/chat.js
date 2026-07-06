@@ -88,12 +88,14 @@ export function renderChat(container, character, renderCharacters) {
 
     messages.appendChild(loadingMessage);
 
+    try {
+
     const response =
         await getCharacterResponse(
-    character,
-    conversation
-);
-    
+            character,
+            conversation
+        );
+
     loadingMessage.remove();
 
     messageInput.value = "";
@@ -107,5 +109,20 @@ export function renderChat(container, character, renderCharacters) {
         <p><strong>${character.name}:</strong> ${response}</p>
     `;
 
+}  catch (error) {
+
+    loadingMessage.remove();
+
+    messageInput.value = "";
+
+    console.error(error);
+
+    messages.innerHTML += `
+        <p>
+            <strong>${character.name}:</strong>
+            Lo siento, tuve un problema al responder.
+        </p>
+    `;
+}
 });
 }
