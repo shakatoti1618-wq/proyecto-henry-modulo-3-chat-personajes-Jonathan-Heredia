@@ -46,15 +46,18 @@ export function renderChat(container, character, renderCharacters) {
         return;
     }
 
-    const response =
-        await getCharacterResponse(character);
-
     const userMessage = messageInput.value;
 
     conversation.push({
         role: "user",
         content: userMessage
     });
+
+    const response =
+        await getCharacterResponse(
+    character,
+    conversation
+);
 
     messages.innerHTML += `
         <p><strong>Tú:</strong> ${userMessage}</p>

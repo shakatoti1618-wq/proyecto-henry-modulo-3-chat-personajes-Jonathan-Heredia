@@ -3,15 +3,18 @@ export async function getCharacterResponse(
     conversation
 ) {
 
-    if (character.id === "goku") {
-        return "¡Genial! ¿Quieres entrenar conmigo?";
-    }
+    const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            systemPrompt: character.systemPrompt,
+            conversation
+        })
+    });
 
-    if (character.id === "kratos") {
-        return "Habla, guerrero.";
-    }
+    const data = await response.json();
 
-    if (character.id === "master-chief") {
-        return "Espero tus órdenes.";
-    }
+    return data.response;
 }
