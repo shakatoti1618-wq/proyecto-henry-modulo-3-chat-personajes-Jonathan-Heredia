@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         });
 
         const recentConversation =
-            conversation.slice(-6);
+            conversation.slice(-20);
 
         const history = recentConversation
         .map(message =>
@@ -37,7 +37,7 @@ ${history}
                 contents: prompt,
                 config: {
                     temperature,
-                    maxOutputTokens: 300
+                    maxOutputTokens: 500
                 }
             });
 

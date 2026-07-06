@@ -85,6 +85,16 @@ export function renderChat(container, character, renderCharacters) {
 
     const sendButton = document.querySelector("#send-button");
 
+    messageInput.addEventListener("keydown", (event) => {
+
+    if (event.key === "Enter") {
+
+        sendButton.click();
+
+    }
+
+});
+
     const messages = document.querySelector(".messages");
 
     const characterImage =
@@ -201,14 +211,38 @@ export function renderChat(container, character, renderCharacters) {
 
     console.error(error);
 
+    let errorMessage =
+        "Lo siento, tuve un problema al responder.";
+
+    if (character.id === "goku") {
+
+        errorMessage =
+            "¡Ups! Parece que algo interrumpió mi entrenamiento. ¡Intenta otra vez!";
+
+    }
+
+    if (character.id === "kratos") {
+
+        errorMessage =
+            "Algo ha fallado. Vuelve a intentarlo.";
+
+    }
+
+    if (character.id === "master-chief") {
+
+        errorMessage =
+            "Error de comunicación. Reintentando misión.";
+
+    }
+
     messages.innerHTML += `
         <p class="assistant-message">
             <strong>${character.name}:</strong>
-            Lo siento, tuve un problema al responder.
+            ${errorMessage}
         </p>
     `;
 
-        scrollToBottom();
+    scrollToBottom();
 }
 });
 }
