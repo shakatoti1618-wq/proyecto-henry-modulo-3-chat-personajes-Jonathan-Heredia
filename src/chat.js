@@ -76,15 +76,25 @@ export function renderChat(container, character, renderCharacters) {
         content: userMessage
     });
 
+    messages.innerHTML += `
+        <p><strong>Tú:</strong> ${userMessage}</p>
+    `;
+
+    const loadingMessage = document.createElement("p");
+
+    loadingMessage.innerHTML = `
+    <strong>${character.name}:</strong> está pensando...
+    `;
+
+    messages.appendChild(loadingMessage);
+
     const response =
         await getCharacterResponse(
     character,
     conversation
 );
-
-    messages.innerHTML += `
-        <p><strong>Tú:</strong> ${userMessage}</p>
-    `;
+    
+    loadingMessage.remove();
 
     messageInput.value = "";
 
