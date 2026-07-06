@@ -36,7 +36,7 @@ ${history}
                 model: "gemini-2.5-flash",
                 contents: prompt,
                 config: {
-                    temperature
+                    temperature,
                     maxOutputTokens: 300
                 }
             });

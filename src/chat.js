@@ -3,6 +3,15 @@ import { getCharacterResponse } from "./ai.js";
 const conversations = {};
 
 export function renderChat(container, character, renderCharacters) {
+
+    let currentImage = character.image;
+
+    const backgrounds = {
+    goku: "./src/images/templo1.png",
+    kratos: "./src/images/olimpo.png",
+    "master-chief": "./src/images/halo.png"
+};
+
     const conversation =
     conversations[character.id] || [];
 
@@ -10,13 +19,44 @@ export function renderChat(container, character, renderCharacters) {
     conversation;
 
     container.innerHTML = `
-        <div class="chat-container">
+<div
+    class="chat-background"
+    style="
+        background-image: url('${backgrounds[character.id]}');
+    "
+>
+
+    <div class="chat-container">
+
+        <div class="chat-overlay">
 
             <button id="back-button">
                 ← Volver
             </button>
 
             <h2>${character.name}</h2>
+
+            <img
+                id="character-image"
+                class="chat-character-image"
+                src="${currentImage}"
+                alt="${character.name}"
+            >
+
+            <div class="transformations">
+
+                ${Object.entries(character.forms)
+                    .map(([key, form]) => `
+                        <button
+                            class="form-button"
+                            data-form="${key}"
+                        >
+                            ${form.title}
+                        </button>
+                    `)
+                    .join("")}
+
+            </div>
 
             <div class="messages">
                 <p>${character.greeting}</p>
@@ -33,7 +73,11 @@ export function renderChat(container, character, renderCharacters) {
             </button>
 
         </div>
-    `;
+
+    </div>
+
+</div>
+`;
 
     const backButton = document.querySelector("#back-button");
 
@@ -43,8 +87,14 @@ export function renderChat(container, character, renderCharacters) {
 
     const messages = document.querySelector(".messages");
 
+    const characterImage =
+        document.querySelector("#character-image");
+
+    const formButtons =
+        document.querySelectorAll(".form-button");
+
     function scrollToBottom() {
-    messages.scrollTop = messages.scrollHeight;
+        messages.scrollTop = messages.scrollHeight;
 }
 
     conversation.forEach(message => {
@@ -72,6 +122,22 @@ export function renderChat(container, character, renderCharacters) {
     backButton.addEventListener("click", () => {
         renderCharacters();
     });
+
+    formButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const form =
+            character.forms[
+                button.dataset.form
+            ];
+
+        characterImage.src =
+            form.image;
+
+    });
+
+});
 
     sendButton.addEventListener("click", async () => {
 
