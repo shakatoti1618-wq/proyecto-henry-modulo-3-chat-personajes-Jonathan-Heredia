@@ -37,6 +37,7 @@ ${history}
                 contents: prompt,
                 config: {
                     temperature
+                    maxOutputTokens: 300
                 }
             });
 
