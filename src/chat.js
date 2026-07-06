@@ -43,21 +43,31 @@ export function renderChat(container, character, renderCharacters) {
 
     const messages = document.querySelector(".messages");
 
+    function scrollToBottom() {
+    messages.scrollTop = messages.scrollHeight;
+}
+
     conversation.forEach(message => {
 
     if (message.role === "user") {
         messages.innerHTML += `
-            <p><strong>Tú:</strong> ${message.content}</p>
+            <p class="user-message">
+                <strong>Tú:</strong> ${message.content}
+            </p>
         `;
     }
 
     if (message.role === "assistant") {
         messages.innerHTML += `
-            <p><strong>${character.name}:</strong> ${message.content}</p>
+            <p class="assistant-message">
+                <strong>${character.name}:</strong> ${message.content}
+            </p>
         `;
     }
 
 });
+
+    scrollToBottom();
 
     backButton.addEventListener("click", () => {
         renderCharacters();
@@ -77,8 +87,12 @@ export function renderChat(container, character, renderCharacters) {
     });
 
     messages.innerHTML += `
-        <p><strong>Tú:</strong> ${userMessage}</p>
+        <p class="user-message">
+            <strong>Tú:</strong> ${userMessage}
+        </p>
     `;
+
+        scrollToBottom();
 
     const loadingMessage = document.createElement("p");
 
@@ -106,8 +120,12 @@ export function renderChat(container, character, renderCharacters) {
     });
 
     messages.innerHTML += `
-        <p><strong>${character.name}:</strong> ${response}</p>
+        <p class="assistant-message">
+            <strong>${character.name}:</strong> ${response}
+        </p>
     `;
+
+        scrollToBottom();
 
 }  catch (error) {
 
@@ -118,11 +136,13 @@ export function renderChat(container, character, renderCharacters) {
     console.error(error);
 
     messages.innerHTML += `
-        <p>
+        <p class="assistant-message">
             <strong>${character.name}:</strong>
             Lo siento, tuve un problema al responder.
         </p>
     `;
+
+        scrollToBottom();
 }
 });
 }

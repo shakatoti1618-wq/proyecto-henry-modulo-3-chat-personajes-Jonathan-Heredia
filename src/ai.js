@@ -10,11 +10,18 @@ export async function getCharacterResponse(
         },
         body: JSON.stringify({
             systemPrompt: character.systemPrompt,
-            conversation
+            conversation,
+            temperature: character.temperature
         })
     });
 
     const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.error || "Error del servidor"
+        );
+    }
 
     return data.response;
 }

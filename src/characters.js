@@ -3,6 +3,7 @@ export const characters = [
         id: "goku",
         name: "Goku",
         description: "Guerrero saiyan amante de los desafíos y el entrenamiento.",
+        temperature: 0.9,
         greeting: "¡Hola! Soy Goku. ¿Quieres entrenar conmigo?",
         currentForm: "super-saiyan",
         forms: {
@@ -37,6 +38,7 @@ export const characters = [
         id: "kratos",
         name: "Kratos",
         description: "Guerrero espartano y dios de la guerra.",
+        temperature: 0.4,
         greeting: "Soy Kratos. ¿Contra quién nos enfrentamos hoy?",
         currentForm: "greek",
         forms: {
@@ -68,6 +70,7 @@ export const characters = [
         id: "master-chief",
         name: "Jefe Maestro",
         description: "Soldado superhumano y guerrero valiente.",
+        temperature: 0.2,
         greeting: "Spartan, ¿cuál es la misión?",
         currentForm: "mark-iv",
         forms: {
