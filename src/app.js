@@ -1,6 +1,12 @@
 import { renderChat } from "./chat.js";
 import { characters } from "./characters.js";
 
+function normalizePath(path) {
+
+    return path.length > 1
+        ? path.replace(/\/$/, "")
+        : path;
+}
 const container =
     document.querySelector("#characters-container");
 
@@ -173,7 +179,9 @@ function renderCharacters() {
 function renderRoute() {
 
     const path =
-        window.location.pathname;
+        normalizePath(
+            window.location.pathname
+        );
 
     if (
         path === "/" ||

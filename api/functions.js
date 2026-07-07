@@ -4,13 +4,19 @@ export default async function handler(req, res) {
 
     if (req.method !== "POST") {
 
-    return res.status(405).json({ error: "Method not allowed" });
+        return res.status(405).json({
+            error: "Method not allowed"
+        });
 
-}
+    }
 
-if (!apiKey) {
+    const apiKey = process.env.GEMINI_API_KEY;
 
-        return res.status(500).json({ error: "GEMINI_API_KEY no configurada" });
+    if (!apiKey) {
+
+        return res.status(500).json({
+            error: "GEMINI_API_KEY no configurada"
+        });
 
     }
 
@@ -23,17 +29,17 @@ if (!apiKey) {
         } = req.body;
 
         const ai = new GoogleGenAI({
-            apiKey: process.env.GEMINI_API_KEY
+            apiKey
         });
 
         const recentConversation =
             conversation.slice(-20);
 
         const history = recentConversation
-        .map(message =>
-        `${message.role}: ${message.content}`
-    )
-    .join("\n");
+            .map(message =>
+                `${message.role}: ${message.content}`
+            )
+            .join("\n");
 
         const prompt = `
 ${systemPrompt}
@@ -62,14 +68,18 @@ ${history}
         console.error(error);
 
         if (error.status === 429) {
+
             return res.status(429).json({
                 error:
                     "Límite de solicitudes alcanzado. Intenta nuevamente en unos minutos."
             });
+
         }
 
         return res.status(500).json({
             error: "Error al generar respuesta"
         });
+
     }
+
 }

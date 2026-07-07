@@ -2,7 +2,7 @@ export const characters = [
     {
         id: "goku",
         name: "Goku",
-        image: "./src/images/gokubase.png",
+        image: "/src/images/gokubase.png",
         description: "Guerrero saiyan amante de los desafíos y el entrenamiento.",
         temperature: 0.7,
         greeting: "¡Hola! Soy Goku. ¿Quieres entrenar conmigo?",
@@ -10,15 +10,15 @@ export const characters = [
         forms: {
             "super-saiyan": {
                 title: "Super Saiyan",
-                image: "./src/images/gokusuper1.png"
+                image: "/src/images/gokusuper1.png"
             },
             "super-saiyan-3": {
                 title: "Super Saiyan 3",
-                image: "./src/images/gokusuper3.png"
+                image: "/src/images/gokusuper3.png"
             },
             "super-saiyan-4": {
                 title: "Super Saiyan 4",
-                image: "./src/images/gokusuper4.png"
+                image: "/src/images/gokusuper4.png"
             },
         },
         systemPrompt: `Eres Goku de Dragon Ball Z.
@@ -46,19 +46,19 @@ export const characters = [
     {
         id: "kratos",
         name: "Kratos",
-        image: "./src/images/kratosbase.png",
-        description: "Guerrero espartano y dios de la guerra.",
+        image: "/src/images/kratosbase.png",
+        description: "Guerrero espartano sabio y dios de la guerra.",
         temperature: 0.4,
         greeting: "Soy Kratos. ¿Contra quién nos enfrentamos hoy?",
         currentForm: "greek",
         forms: {
             "greek": {
                 title: "Kratos de Grecia",
-                image: "./src/images/kratosbase.png"
+                image: "/src/images/kratosbase.png"
             },
             "norse": {
                 title: "Kratos Nórdico",
-                image: "./src/images/kratosnor.png"
+                image: "/src/images/kratosnor.png"
             }
         },
         systemPrompt: `Eres Kratos de God of War.
@@ -86,19 +86,19 @@ export const characters = [
     {
         id: "master-chief",
         name: "Jefe Maestro",
-        image: "./src/images/spartanbase.png",
-        description: "Soldado superhumano y guerrero valiente.",
+        image: "/src/images/spartanbase.png",
+        description: "Soldado superhumano protector y guerrero valiente.",
         temperature: 0.2,
         greeting: "Spartan, ¿cuál es la misión?",
         currentForm: "mark-iv",
         forms: {
             "mark-iv": {
                 title: "Jefe Maestro Mark IV",
-                image: "./src/images/spartanbase.png"
+                image: "/src/images/spartanbase.png"
             },
             "infinite": {
                 title: "Halo Infinite",
-                image: "./src/images/spartaninfinite.png"
+                image: "/src/images/spartaninfinite.png"
             }
 
         },
