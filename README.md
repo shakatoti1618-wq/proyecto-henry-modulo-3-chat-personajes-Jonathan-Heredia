@@ -63,7 +63,43 @@ Historial persistente durante la sesión.
 Limitación de mensajes enviados al modelo.
 Control de errores.
 Mensajes de carga mientras la IA responde.
-Responsive Design
+Responsive Design.
+
+# Capturas de Pantalla
+
+## Home
+
+![Home](./src/images/home.png)
+
+---
+
+## Selección de Personajes
+
+![Personajes](./src/images/personajes.png)
+
+---
+
+## Chat con Goku
+
+![Chat Goku](./src/images/chatgoku.png)
+
+---
+
+## Chat con Kratos
+
+![Chat Kratos](./src/images/chatkratos.png)
+
+---
+
+## Chat con Jefe Maestro
+
+![Chat Jefe Maestro](./src/images/chatspartan.png)
+
+---
+
+## Versión Móvil
+
+![Móvil](./src/images/movil2.jpeg)
 
 La aplicación se adapta a:
 
@@ -85,29 +121,13 @@ Testing
 Vitest
 Deploy
 Vercel
-Estructura del Proyecto
-proyecto-final/
-│
-├── api/
-│   └── functions.js
-│
-├── src/
-│   ├── app.js
-│   ├── ai.js
-│   ├── chat.js
-│   ├── characters.js
-│   ├── utils.js
-│   ├── styles.css
-│   └── images/
-│
-├── tests/
-│   └── utils.test.js
-│
-├── index.html
-├── package.json
-├── vercel.json
-└── README.md
-Instalación
+
+## Estructura del proyecto
+
+![Estructura del proyecto](./src/images/estructura.png)
+
+
+Instalación:
 
 Clonar el repositorio:
 
@@ -137,7 +157,7 @@ Modo ejecución única
 
 npm run test:run
 
-Pruebas Implementadas
+Pruebas Implementadas:
 
 Se realizaron pruebas unitarias para:
 
@@ -146,13 +166,13 @@ Limitación del historial de conversación.
 Manejo de errores personalizados.
 Autor
 
-Demo
+Demo:
 
 Aplicación desplegada:
 
 https://proyecto-henry-modulo-3-chat-person.vercel.app
 
-Repositorio
+Repositorio:
 
 Código fuente:
 
@@ -162,6 +182,7 @@ Despliegue en Vercel
 Crear una cuenta en Vercel.
 Importar el repositorio desde GitHub.
 Ir a Settings → Environment Variables.
+
 Crear la variable:
 
 GEMINI_API_KEY
@@ -204,7 +225,7 @@ Incluye:
 - Tests unitarios
 - Diseño responsive
 
-Licencia
+Licencia:
 
 Proyecto académico desarrollado con fines educativos.
 
