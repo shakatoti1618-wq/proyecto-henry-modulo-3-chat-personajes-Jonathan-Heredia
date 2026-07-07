@@ -34,6 +34,10 @@ export function renderChat(container, character, renderCharacters) {
                 ← Volver
             </button>
 
+            <button id="clear-chat-button">
+                🗑️ Limpiar conversación
+            </button>
+
             <h2>${character.name}</h2>
 
             <img
@@ -80,6 +84,9 @@ export function renderChat(container, character, renderCharacters) {
 `;
 
     const backButton = document.querySelector("#back-button");
+
+    const clearButton =
+    document.querySelector("#clear-chat-button");
 
     const messageInput = document.querySelector("#message-input");
 
@@ -132,6 +139,15 @@ export function renderChat(container, character, renderCharacters) {
     backButton.addEventListener("click", () => {
         renderCharacters();
     });
+
+    clearButton.addEventListener("click", () => {
+
+    conversations[character.id] = [];
+
+    messages.innerHTML = `
+        <p>${character.greeting}</p>
+    `;
+});
 
     formButtons.forEach(button => {
 

@@ -348,3 +348,17 @@ button:hover {
 
     border-radius: 16px;
 }
+
+#clear-chat-button {
+
+    display: block;
+
+    margin: 0 auto 1rem auto;
+
+    background: #f59e0b;
+}
+
+#clear-chat-button:hover {
+
+    background: #f59e0bcc;
+}
