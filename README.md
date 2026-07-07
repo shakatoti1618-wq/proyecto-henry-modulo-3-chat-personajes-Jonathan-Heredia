@@ -120,7 +120,7 @@ Gemini AI
 Testing
 Vitest
 Deploy
-Vercel
+Vercel+*
 
 ## Estructura del proyecto
 
