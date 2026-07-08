@@ -225,6 +225,55 @@ Incluye:
 - Tests unitarios
 - Diseño responsive
 
+Documetacion AI:
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI1.png)
+
+Mi idea de apoyo con la ia es:
+que como estoy aprendiendo me apoyo en ella como instructor personal de esa manera practico, aprendo, y resuelvo adicionalmente si me equivoco tengo a la mano la herramienta para que me corrija. En ese orden de ideas ella me enseña, me pregunta y me corrige, mientras que yo ejecuto y me hago cargo de las ideas, el diseño y la app en general 
+
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI2.png)
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI3.png)
+
+En este punto tuve que usar GPT otro gestor ia puesto que tuve inconvenientes con Claude.
+Utilice el mismo prompt de tutoría y me pareció que este agente me exigió más y me ayudo de tal manera que pudiera terminar mi proyecto de la mejor manera posible siempre manteniendo el personaje de tutoría senior.
+Los rompt de abajo son ejemplo de cómo seguía la conversación con la ia y me acompaño con las tutorías que realice con la ella mientras construía y completaba mi proyecto mi proyecto, adicionalmente siempre tuve en cuenta las lecture y las guías de Henry para apoyarme en la construcción de mi app.
+
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI4.png)
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI5.png)
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI6.png)
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI7.png)
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI8.png)
+
+## Prompt IA
+
+![Prompt IA](./src/images/AI9.png)
+
+
+
 Licencia:
 
 Proyecto académico desarrollado con fines educativos.
